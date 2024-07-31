@@ -1,0 +1,350 @@
+$footer-bg-color: #03211b;
+$footer-text-color: #fff;
+$footer-link-color: #000000;
+$newsletter-border-color: #F97316;
+$newsletter-placeholder-color: #ebecef;
+$btn-hover-color: #fcb650;
+$footer-secondary-bg: #E6F1FF;
+
+ /* ==== 
+  --------- (2.6) Footer Styles ---------
+  ==== */
+  .footer {
+    padding: 80px 0;
+    background-color: #222e48;
+    color: #ffffff;
+  }
+  
+  .footer__widget {
+    margin-bottom: 50px;
+  }
+  
+  .footer__widget h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+  
+  .footer__widget p {
+    font-size: 16px;
+    color: #6a7283;
+  }
+  
+  .footer__widget .footer__social li {
+    display: inline-block;
+  }
+  
+  .footer__widget .footer__social li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: #ffffff;
+    color: #6a7283;
+  }
+  
+  .footer__widget .footer__social li a:hover {
+    background-color: #ff6e00;
+    color: #ffffff;
+  }
+  
+  .footer__widget .footer__form {
+    position: relative;
+    max-width: 400px;
+  }
+  
+  .footer__widget .footer__form input[type="email"] {
+    width: 100%;
+    background-color: #2c3855;
+    border: none;
+    padding: 20px;
+    border-radius: 8px;
+    color: #ffffff;
+  }
+  
+  .footer__widget .footer__form input[type="email"]::placeholder {
+    color: #6a7283;
+  }
+  
+  .footer__widget .footer__form button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 70px;
+    background-color: #ff6e00;
+    border: none;
+    border-radius: 0px 8px 8px 0px;
+    cursor: pointer;
+    color: #ffffff;
+  }
+  
+  .footer__widget .footer__form button:hover {
+    background-color: #222e48;
+  }
+  
+  .footer__bottom {
+    background-color: #1b253b;
+    padding: 20px 0;
+  }
+  
+  .footer__bottom p {
+    font-size: 14px;
+    color: #ffffff;
+    margin: 0;
+  }
+  
+  .footer__bottom p a {
+    color: #ff6e00;
+  }
+  
+  .footer__bottom p a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer__bottom p span {
+    color: #6a7283;
+  }
+  
+  .footer__bottom p span:hover {
+    text-decoration: underline;
+  }
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column($gap: 0) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+.footer {
+  position: relative;
+  z-index: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $footer-bg-color;
+    z-index: -1;
+  }
+
+  &__title {
+    color: $footer-text-color;
+  }
+
+  a,
+  p {
+    color: $footer-link-color;
+  }
+
+  a {
+    gap: 16px;
+  }
+
+  .footer__contact {
+    .footer__content {
+      @include flex-column(16px);
+    }
+  }
+
+  .newsletter__content-form {
+    .input-group {
+      border: 1px solid $newsletter-border-color;
+      border-radius: 30px;
+
+      input {
+        border: 0;
+        outline: 0;
+        color: $footer-text-color;
+
+        &.form-control {
+          background: transparent;
+        }
+
+        &::-moz-placeholder,
+        &::placeholder {
+          color: $newsletter-placeholder-color !important;
+        }
+      }
+    }
+
+    .emailSubscribe {
+      @include flex-center;
+      padding: 12px 24px;
+      border-radius: 30px !important;
+      margin: 8px;
+
+      i {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+.quick-link {
+  ul {
+    @include flex-column(8px);
+
+    li:hover a {
+      transform: translateX(8px);
+      width: 90%;
+      min-width: -moz-fit-content;
+      min-width: fit-content;
+    }
+  }
+}
+
+.footer__copyright {
+  padding: 30px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  @include flex-center;
+  gap: 20px 30px;
+
+  .footer__copyright-conditions {
+    @include flex-center;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+
+    li a {
+      width: -moz-max-content;
+      width: max-content;
+
+      &:hover {
+        color: $btn-hover-color;
+      }
+    }
+  }
+}
+
+.footer-secondary {
+  background: $footer-secondary-bg;
+
+  &::before,
+  &::after {
+    display: none;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .footer-secondary__content {
+    @include flex-center;
+    flex-wrap: wrap;
+    gap: 20px 60px;
+
+    .btn_theme {
+      border-color: $btn-hover-color;
+      padding: 0;
+
+      &:before {
+        background: $btn-hover-color;
+      }
+
+      .btn_theme_inner span i {
+        color: $btn-hover-color;
+      }
+
+      &:hover .btn_theme_inner span i {
+        color: #F97316;
+      }
+    }
+
+    .quick-link .quick-link__list {
+      flex-direction: row;
+      gap: 16px 24px;
+      flex-wrap: wrap;
+
+      li:hover a {
+        transform: translateX(0);
+        color: $btn-hover-color;
+      }
+    }
+  }
+
+  .footer__copyright {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1399px) {
+  .footer__logo img {
+    width: 75%;
+  }
+}
+
+@media (max-width: 1199px) {
+  .footer-secondary .footer-secondary__content .quick-link {
+    margin-bottom: -50px;
+  }
+}
+
+@media (max-width: 991px) {
+  footer .footer__copyright {
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .copyright {
+      order: 2;
+    }
+  }
+
+  .footer-secondary .footer-secondary__content {
+    justify-content: flex-start;
+    gap: 40px;
+
+    .quick-link {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .footer .newsletter__content-form .emailSubscribe {
+    padding: 4px 18px;
+    margin: 4px;
+
+    i {
+      font-size: 20px;
+    }
+  }
+
+  .footer__copyright-conditions {
+    gap: 8px 16px;
+  }
+}
+
+@media (max-width: 575px) {
+  .footer__newsletter-form {
+    width: 100%;
+  }
+
+  .footer__contact {
+    margin: 0;
+  }
+
+  .footer-secondary .quick-link__list {
+    gap: 12px 16px;
+  }
+}
+
+@media (max-width: 479px) {
+  .footer__newsletter-form .newsletter__content-form input.emailSubscribe {
+    padding: 16px 20px;
+  }
+
+  .footer-secondary .quick-link__list {
+    gap: 12px 28px;
+  }
+}

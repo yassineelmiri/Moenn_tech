@@ -1,0 +1,36 @@
+<footer class="footer footer-secondary bg-blue-200">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 py-12">
+            <div class="flex items-center">
+                <a  aria-current="page" [routerLink]="['/home']" routerLinkActive="iconActive">
+                    <img src="assets/images/logo.png" alt="Logo" class="w-24">
+                </a>
+            </div>
+            <div class="quick-link order-1 lg:order-0">
+                <ul class="quick-link__list flex flex-wrap gap-4">
+                    <li><a  aria-current="page" [routerLink]="['/home']" routerLinkActive="iconActive">Help & Support</a></li>
+                    <li><a  aria-current="page" [routerLink]="['/home']" routerLinkActive="iconActive">Privacy policy</a></li>
+                    <li><a  aria-current="page" [routerLink]="['/home']" routerLinkActive="iconActive">Terms & Conditions</a></li>
+                    <li><a  aria-current="page" [routerLink]="['/home']" routerLinkActive="iconActive">Contact us</a></li>
+                </ul>
+            </div>
+            <div class="social">
+                <a  aria-current="page" [routerLink]="['/home']" routerLinkActive="iconActive" class="btn_theme social_box"><i class="bi bi-facebook"></i><span></span></a>
+                <a  aria-current="page" [routerLink]="['/home']" routerLinkActive="iconActive" class="btn_theme social_box"><i class="bi bi-twitter"></i><span></span></a>
+                <a  aria-current="page" [routerLink]="['/home']" routerLinkActive="iconActive" class="btn_theme social_box"><i class="bi bi-pinterest"></i><span></span></a>
+                <a  aria-current="page" [routerLink]="['/home']" routerLinkActive="iconActive" class="btn_theme social_box"><i class="bi bi-twitch"></i><span></span></a>
+                <a  aria-current="page" [routerLink]="['/home']" routerLinkActive="iconActive" class="btn_theme social_box"><i class="bi bi-skype"></i><span></span></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="footer__copyright">
+                    <p class="copyright text-center">Copyright © <span id="copyYear"></span>
+                        <a  aria-current="page" [routerLink]="['/home']" routerLinkActive="iconActive" class="secondary_color">MOENN</a>. Designed By
+                        <a  aria-current="page" [routerLink]="['/home']" routerLinkActive="iconActive" class="secondary_color">MOHAMED</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

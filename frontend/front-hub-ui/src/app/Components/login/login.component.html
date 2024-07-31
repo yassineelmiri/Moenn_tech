@@ -1,0 +1,60 @@
+<section class="banner">
+    <div class="container">
+        <div class="flex flex-col sm:flex-row items-center gap-y-4 sm:gap-y-0">
+            <div class="w-full sm:w-1/2">
+                <div class="banner__content">
+                    <h1 class="banner__title text-4xl md:text-5xl lg:text-6xl font-bold">Sign in</h1>
+                    <nav aria-label="breadcrumb" class="mt-4">
+                        <ol class="breadcrumb flex flex-wrap gap-2 md:gap-4">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item">pages</li>
+                            <li class="breadcrumb-item active" aria-current="page">Sign in</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 flex justify-end">
+                <div class="banner__thumb">
+                    <img src="assets/images/signin_banner.png" alt="image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- sign-up start -->
+<section class="sign-up section py-12">
+    <div class="container mx-auto">
+        <div class="flex flex-wrap justify-center lg:justify-between items-center gap-5 lg:gap-0">
+            <div class="w-full lg:w-7/12 2xl:w-6/12">
+                <form method="POST" autocomplete="off" id="frmContactus" class="sign-up__form lg:mr-4 2xl:mr-0">
+                    <h3 class="sign-up__title">Welcome Back!</h3>
+                    <p class="sign-up__sub-title mb-10">Sign in to your account and join us</p>
+                    <div class="sign-up__form-part">
+                        <div class="input-single mb-6">
+                            <label class="label" for="email">Enter Your Email ID</label>
+                            <input type="email" class="form-control border border-gray-300 rounded-lg px-4 py-2 w-full" name="email" id="email" placeholder="Enter Your Email..." required>
+                        </div>
+                        <div class="input-single mb-6">
+                            <label class="label" for="password">Enter Your Password</label>
+                            <div class="relative">
+                                <input type="password" class="form-control border border-gray-300 rounded-lg px-4 py-2 w-full" name="password" id="password" placeholder="Enter Your Password..." required>
+                                <span class="password-eye-icon absolute right-4 top-3 cursor-pointer"></span>
+                            </div>
+                        </div>
+                        <a href="#" class="text-sm text-gray-500">Forget password</a>
+                    </div>
+                    <p class="have_account mt-6">Do you have an account? <a href="sign-up.html" class="text-blue-600">Signup</a></p>
+                    <span id="msg"></span> 
+                    <button type="submit" class="btn_theme mt-8 bg-blue-600 text-white px-6 py-3 rounded-lg" name="submit" id="submit">Sign In<i class="bi bi-arrow-up-right ml-2"></i><span></span></button>
+                </form>
+            </div>
+            <div class="w-full sm:w-7/12 lg:w-5/12 2xl:w-5/12">
+                <div class="sign-up__thumb previewShapeY">
+                    <img src="assets/images/sign_up.png" alt="images" class="w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- sign-up end -->

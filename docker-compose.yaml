@@ -1,0 +1,59 @@
+services:
+#  postgres:
+#    image: postgres:${POSTGRES_VERSION:-16}-alpine
+#    environment:
+#      POSTGRES_DB: ${POSTGRES_DB:-app}
+#      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-!ChangeMe!}
+#      POSTGRES_USER: ${POSTGRES_USER:-app}
+#    healthcheck:
+#      test: [ "CMD", "pg_isready", "-d", "${POSTGRES_DB:-app}", "-U", "${POSTGRES_USER:-app}" ]
+#      timeout: 5s
+#      retries: 5
+#      start_period: 60s
+#    volumes:
+#      - postgres_data:/var/lib/postgresql/data:rw
+#    networks:
+#      - proxy-advisor-apps
+
+  backend_activity_api:
+    build:
+      context: ./backend/activity-api
+    container_name: ${COMPOSE_PROJECT_NAME}_back_activity_api
+    ports:
+      - "8081:80"
+      - "44301:443"
+    volumes:
+      - ./backend/activity-api/docker/apache/sites-enabled:/etc/apache2/sites-enabled
+      - ./backend/activity-api:/var/www
+    restart: always
+    networks:
+      - proxy-advisor-apps
+
+  frontend_hub_ui:
+    env_file:
+      - frontend/front-hub-ui/.front_hub_ui.dev.env
+    restart: unless-stopped
+    container_name: ${COMPOSE_PROJECT_NAME}_front_hub_ui
+    build:
+      context: ./frontend/front-hub-ui
+      dockerfile: dev.Dockerfile
+      target: FRONTEND_HUB_UI_DEVELOPMENT_ENV
+      args:
+        - FRONT_HUB_UI_APP_DIR=${FRONT_HUB_UI_APP_DIR}
+        - FRONT_HUB_UI_ENV=${FRONT_HUB_UI_ENV}
+    volumes:
+      - ./frontend/front-hub-ui/ops/logs:/root/.npm/_logs
+      - ./frontend/front-hub-ui/src:${FRONT_HUB_UI_APP_DIR}/src:rw
+    ports:
+      - "4220:4200"
+    networks:
+      - proxy-advisor-apps
+
+     
+volumes:
+  postgres_data:
+  
+networks:
+  proxy-advisor-apps:
+    driver: overlay
+    attachable: true

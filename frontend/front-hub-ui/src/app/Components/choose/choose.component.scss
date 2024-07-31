@@ -1,0 +1,63 @@
+.choose-us {
+    position: relative;
+    z-index: 0;
+  
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 56%;
+      opacity: 0.1;
+      background: linear-gradient(270deg, #F97316 0%, #fcb650 100%);
+      z-index: -1;
+    }
+  
+    .choose-us__thumb {
+      display: flex;
+      justify-content: flex-end;
+  
+      img {
+        max-width: unset;
+      }
+    }
+  
+    .animation {
+      img:first-child {
+        position: absolute;
+        top: 76px;
+        left: 30%;
+        animation: previewShapeRevX 5s infinite;
+      }
+  
+      img:last-child {
+        position: absolute;
+        right: 4%;
+        top: 85px;
+        animation: custom__flipOutY 3s linear infinite;
+      }
+    }
+  
+    .loan-reviews--secondary {
+      padding: 60px;
+    }
+  
+    .bg {
+      position: relative;
+      z-index: 0;
+  
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -10%;
+        height: 100%;
+        background: white;
+        z-index: -1;
+        width: 120%;
+        border-radius: 16px;
+      }
+    }
+  }
+  

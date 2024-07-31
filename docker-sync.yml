@@ -1,0 +1,19 @@
+version: "2"
+
+options:
+  compose-file-path: './docker-compose.yaml'
+  verbose: true
+  cli_mode: 'auto'
+  max_attempt: 5
+  project_root: 'pwd'
+
+syncs:
+  proxy-advisor-apps-unison-sync:
+    sync_strategy: 'unison'
+    unison_image: eugenmayer/unison:2.52.1-4.12.0-ARM64
+    src: '.'
+    notify_terminal: true
+    sync_host_ip: 'auto'
+    sync_args: [ '-watch' ]
+    sync_excludes: [ '.git', '.idea' ]
+    host_disk_mount_mode: 'cached'
